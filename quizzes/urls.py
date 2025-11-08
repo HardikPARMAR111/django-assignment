@@ -3,7 +3,8 @@ from . import views
 
 urlpatterns = [
     path('', views.quiz_list, name='quiz_list'),
-    path('<int:quiz_id>/', views.quiz_detail, name='quiz_detail'),
     path('dashboard/', views.quiz_dashboard, name='quiz_dashboard'),
-    path('results/<int:submission_id>/', views.quiz_result, name='quiz_result'),
+    path('<int:quiz_id>/', views.quiz_detail, name='quiz_detail'),
+    path('<int:quiz_id>/submit/', views.submit_quiz, name='submit_quiz'),
+    path('result/<int:submission_id>/', views.quiz_result, name='quiz_result'),
 ]
