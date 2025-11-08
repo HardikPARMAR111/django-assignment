@@ -1,5 +1,5 @@
 from django.db import models
-
+#All the tables according to the assignment requirements
 class Quiz(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField(blank=True)
