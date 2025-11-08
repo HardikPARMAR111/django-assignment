@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block content %}
+<div class="min-h-screen bg-gray-100 py-12 px-6">
+  <div class="max-w-3xl mx-auto bg-white shadow-md rounded-2xl p-8">
+    <h1 class="text-4xl font-bold text-center text-green-600 mb-8">
+      Upcoming Events
+    </h1>
+
+    {% if events %}
+    <ul class="space-y-4">
+      {% for event in events %}
+      <li
+        class="p-5 border border-gray-200 rounded-lg hover:shadow-lg transition duration-300 bg-white"
+      >
+        <div
+          class="flex flex-col sm:flex-row sm:items-center sm:justify-between"
+        >
+          <div>
+            <h2 class="text-2xl font-semibold text-gray-800">
+              {{ event.title }}
+            </h2>
+            <p class="text-gray-600 mt-1">{{ event.location }}</p>
+          </div>
+          <span class="text-blue-600 font-medium mt-2 sm:mt-0">
+            {{ event.date }}
+          </span>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="text-center text-gray-500 text-lg">No upcoming events.</p>
+    {% endif %}
+
+    <div class="text-center mt-10">
+      <a
+        href="{% url 'quiz_list' %}"
+        class="inline-block px-6 py-3 bg-green-600 text-white rounded-lg font-medium shadow hover:bg-green-700 transition"
+      >
+        Back to Quizzes
+      </a>
+    </div>
+  </div>
+</div>
+{% endblock %}
